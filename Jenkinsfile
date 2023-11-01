@@ -3,7 +3,7 @@ pipeline
     agent any
     
     tools{
-    	maven 'maven'
+    	maven 'M2'
         }
 
     stages 
@@ -12,7 +12,7 @@ pipeline
         {
             steps
             {
-                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                 git 'https://github.com/SarojiniSahoo/June2022POMUIFramework.git'
                  sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post 
@@ -36,7 +36,7 @@ pipeline
         stage('Regression Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/naveenanimation20/June2022POMUIFramework.git'
+                    git 'https://github.com/SarojiniSahoo/June2022POMUIFramework.git'
                     sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
                     
                 }
@@ -80,7 +80,7 @@ pipeline
         stage('Sanity Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/naveenanimation20/June2022POMUIFramework.git'
+                    git 'https://github.com/SarojiniSahoo/June2022POMUIFramework.git'
                     sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml"
                     
                 }
