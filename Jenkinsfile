@@ -37,7 +37,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/SarojiniSahoo/June2022POMUIFramework.git'
-                    bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
+                    bat "mvn -D suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
                     
                 }
             }
