@@ -1,0 +1,51 @@
+ pipeline{
+    agent any
+        stages{
+          stage("build"){
+              steps{
+              echo("build project")
+              }
+          }  
+           stage("deploy project"){
+               steps{
+              echo("deploy project env ")
+               }
+          }    
+             stage("run UT's "){
+                 steps{
+              echo(" run UT's")
+                 }
+          }
+            stage("deploy to QA "){
+                steps{
+              echo(" Deploy to QA ")
+                }
+          }    
+           stage("run regression automation test"){
+               steps{
+              echo("run regression test cases")
+               }
+          }   
+           stage("deploy to stage "){
+               steps{
+              echo(" Deploy to stage env ")
+               }
+          }  
+            stage("run sanity automation test "){
+                steps{
+              echo(" run sanity test cases ")
+                }
+          }    
+          stage("deploy to PROD "){
+              steps{
+              echo(" Deploy to PROD env ")
+              }
+          }  
+         }} 
+            
+            
+            
+            
+            
+            
+          
