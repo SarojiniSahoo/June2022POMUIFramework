@@ -13,7 +13,7 @@ pipeline
             steps
             {
                  git 'https://github.com/SarojiniSahoo/June2022POMUIFramework.git'
-                 bat "mvn -D maven.test.failure.ignore=true clean package"
+                 bat "mvn -D maven.test.failure.ignore=true clean"
             }
             post 
             {
@@ -37,7 +37,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/SarojiniSahoo/June2022POMUIFramework.git'
-                    bat "mvn clean test -D surefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
+                    bat "mvn clean test -D suiteXmlFile=src/test/resources/testrunners/testng_regression.xml"
                     
                 }
             }
@@ -81,7 +81,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/SarojiniSahoo/June2022POMUIFramework.git'
-                    bat "mvn clean test -D surefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml"
+                    bat "mvn clean test -D suiteXmlFile=src/test/resources/testrunners/testng_sanity.xml"
                     
                 }
             }
